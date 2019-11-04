@@ -1,6 +1,5 @@
-FROM scratch
+FROM ubuntu:18.04
 
-ADD ubuntu-bionic-core-cloudimg-amd64-root.tar.gz /
 ADD pre_install /
 
 RUN	set -xe \
