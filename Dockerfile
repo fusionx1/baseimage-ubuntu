@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ADD pre_install /
 
@@ -70,5 +70,7 @@ RUN	set -xe \
 	find /usr/share/doc -type d -empty -delete
 
 ADD post_install /
+
+RUN chmod -R +x /etc/my_init.d /etc/service
 
 CMD ["/sbin/my_init"]
