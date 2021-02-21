@@ -1,0 +1,12 @@
+FROM --platform=linux/arm64v8 arm64v8/ubuntu:20.04
+ADD qemu-aarch64-static /usr/bin
+
+ADD pre_install /
+
+RUN chmod +x /build/install && /build/install && rm -r /build
+
+ADD post_install /
+
+RUN chmod -R +x /etc/my_init.d /etc/service
+
+CMD ["/sbin/my_init"]

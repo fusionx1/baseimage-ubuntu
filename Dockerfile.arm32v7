@@ -1,0 +1,12 @@
+FROM --platform=linux/arm32v7 arm32v7/ubuntu:20.04
+ADD qemu-arm-static /usr/bin
+
+ADD pre_install /
+
+RUN chmod +x /build/install && /build/install && rm -r /build
+
+ADD post_install /
+
+RUN chmod -R +x /etc/my_init.d /etc/service
+
+CMD ["/sbin/my_init"]
