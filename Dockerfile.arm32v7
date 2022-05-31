@@ -1,4 +1,4 @@
-FROM --platform=linux/arm32v7 arm32v7/ubuntu:20.04
+FROM --platform=linux/arm32v7 arm32v7/ubuntu:22.04
 ADD qemu-arm-static /usr/bin
 
 ADD pre_install /
