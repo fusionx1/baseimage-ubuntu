@@ -41,7 +41,7 @@ RUN /bin/sh -c ./cleanup.sh
 
 #RUN mkdir -p /etc/container_environment
 # Make these world readable https://github.com/phusion/baseimage-docker#security
-RUN chmod -R 755 /etc/container_environment/
+RUN chmod -R 755 /etc/container_environment/PATH
 RUN chmod 644 /etc/container_environment.sh /etc/container_environment.json
 
 
@@ -88,7 +88,7 @@ RUN   /bin/sh -c fc-cache -f && fc-list | sort
 
 
     
-#RUN   mkdir /etc/service/xvfb
+RUN   mkdir /etc/service/xvfb
 # Set the user for the following CMD instruction '
 RUN whoami
 # Use the my_init.sh script as the entrypoint 
