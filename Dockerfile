@@ -8,7 +8,7 @@ ADD post_install /
 
 RUN chmod -R +x /etc/my_init.d /etc/service
 
-RUN useradd -ms /bin/bash 1008050001
+RUN useradd -ms /bin/bash "1008050001"
 
 #COPY my_init.py /sbin/my_init
 
@@ -101,7 +101,7 @@ RUN whoami
 
 USER 1008050001
 
-CMD ["/sbin/my_init","--","setuser", 1008050001,"bash"]
+CMD ["/sbin/my_init","--","setuser", "1008050001","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
