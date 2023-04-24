@@ -8,8 +8,6 @@ ADD post_install /
 
 RUN chmod -R +x /etc/my_init.d /etc/service
 
-RUN useradd -ms /bin/bash myuser
-
 RUN groupadd -r myuser 
 RUN useradd -r -g myuser myuser
 
