@@ -10,6 +10,9 @@ RUN chmod -R +x /etc/my_init.d /etc/service
 
 RUN useradd -ms /bin/bash myuser
 
+RUN groupadd -r myuser 
+RUN useradd -r -g myuser myuser
+
 #COPY my_init.py /sbin/my_init
 
 #RUN chmod +x ./sbin/my_init
@@ -113,11 +116,13 @@ RUN chmod +x /sbin/my_init
 
 RUN su myuser
 
-#CMD ["/sbin/my_init"]
-
 RUN whoami 
 
-ENTRYPOINT ["/sbin/my_init","--","setuser", "myuser","bash"]
+CMD ["/sbin/my_init"]
+
+
+
+#ENTRYPOINT ["/sbin/my_init","--","setuser", "myuser","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
