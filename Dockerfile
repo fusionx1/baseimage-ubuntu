@@ -113,10 +113,10 @@ RUN chmod +x /sbin/my_init
 
 RUN su myuser
 
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
 
-#CMD ["/sbin/my_init","--","setuser", "myuser","bash"]
+ENTRYPOINT ["/sbin/my_init","--","setuser", "myuser","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
-#CMD ["bash"]
+CMD ["bash"]
