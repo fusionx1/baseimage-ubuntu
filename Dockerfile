@@ -118,7 +118,7 @@ RUN whoami
 
 #CMD ["/sbin/my_init"]
 
-CMD ["/sbin/my_init","--","setuser", "myuser","bash"]
+CMD ["/sbin/my_init --skip-startup-files","--","setuser", "myuser","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
