@@ -16,7 +16,9 @@ RUN useradd -ms /bin/bash myuser
 
 COPY 00_regen_ssh_host_keys.sh /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-RUN chmod +x /etc/my_init.d/00_regen_ssh_host_keys.sh
+RUN chown myuser:myuser /etc/my_init.d/00_regen_ssh_host_keys.sh
+
+RUN chmod -R 775 /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 #COPY 10_syslog-ng.init /etc/my_init.d/10_syslog-ng.init
 
@@ -41,10 +43,20 @@ RUN /bin/sh -c ./cleanup.sh
 
 #RUN mkdir -p /etc/container_environment
 # Make these world readable https://github.com/phusion/baseimage-docker#security
+RUN chown -R myuser:myuser /etc/container_environment/
 RUN chmod -R 755 /etc/container_environment/
-RUN chmod 644 /etc/container_environment.sh /etc/container_environment.json
 
+RUN chown -R myuser:myuser /etc/container_environment.sh
+RUN chown -R myuser:myuser /etc/container_environment.json
 
+RUN chmod -R 775 /etc/container_environment.sh 
+RUN chmod -R 775 /etc/container_environment.sh 
+
+RUN chown -R myuser:myuser /etc/environment.d/
+RUN chmod -R 755 /etc/environment.d/
+
+RUN chown -R myuser:myuser /etc/init.d/
+RUN chmod -R 755 /etc/init.d/
 #RUN |1 QEMU_ARCH= /bin/sh -c /bd_build/prepare.sh && /bd_build/system_services.sh && /bd_build/utilities.sh && /bd_build/cleanup.sh 
 
 
@@ -97,11 +109,12 @@ RUN whoami
 #RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 #RUN /etc/my_init.d/10_syslog-ng.init
 
-#CMD ["/sbin/my_init"]
 
-USER myuser
 
-CMD ["/sbin/my_init --quiet","--","setuser", "myuser","bash"]
+x
+CMD ["/sbin/my_init"]
+
+#CMD ["/sbin/my_init","--","setuser", "myuser","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
