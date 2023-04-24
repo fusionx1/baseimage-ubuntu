@@ -41,7 +41,7 @@ RUN /bin/sh -c ./cleanup.sh
 
 #RUN mkdir -p /etc/container_environment
 # Make these world readable https://github.com/phusion/baseimage-docker#security
-RUN chmod -R 755 /etc/container_environment/PATH
+RUN chmod -R 755 /etc/container_environment/
 RUN chmod 644 /etc/container_environment.sh /etc/container_environment.json
 
 
