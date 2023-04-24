@@ -101,7 +101,7 @@ RUN whoami
 
 USER myuser
 
-CMD ["/sbin/my_init --no-kill-all-on-exit","--","setuser", "myuser3","bash"]
+CMD ["/sbin/my_init --no-kill-all-on-exit","--","setuser", "myuser","bash"]
 
 
 # Run the "bash" shell as user "myuser" 
