@@ -115,6 +115,8 @@ RUN su myuser
 
 #CMD ["/sbin/my_init"]
 
+RUN whoami 
+
 ENTRYPOINT ["/sbin/my_init","--","setuser", "myuser","bash"]
 
 
