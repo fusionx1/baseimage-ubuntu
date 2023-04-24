@@ -99,7 +99,6 @@ RUN   /bin/sh -c fc-cache -f && fc-list | sort
 
 
 
-    
 RUN   mkdir /etc/service/xvfb
 # Set the user for the following CMD instruction '
 RUN whoami
@@ -111,7 +110,6 @@ RUN whoami
 
 
 
-x
 CMD ["/sbin/my_init"]
 
 #CMD ["/sbin/my_init","--","setuser", "myuser","bash"]
