@@ -52,8 +52,8 @@ RUN chown -R myuser:myuser /etc/container_environment.json
 RUN chmod -R 775 /etc/container_environment.sh 
 RUN chmod -R 775 /etc/container_environment.sh 
 
-RUN chown -R myuser:myuser /etc/environment.d/
-RUN chmod -R 755 /etc/environment.d/
+#RUN chown -R myuser:myuser /etc/environment.d/
+#RUN chmod -R 755 /etc/environment.d/
 
 RUN chown -R myuser:myuser /etc/init.d/
 RUN chmod -R 755 /etc/init.d/
