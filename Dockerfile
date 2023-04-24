@@ -108,7 +108,7 @@ RUN whoami
 #RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 #RUN /etc/my_init.d/10_syslog-ng.init
 
-
+RUN su myuser
 
 CMD ["/sbin/my_init"]
 
