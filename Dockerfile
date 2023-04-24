@@ -14,9 +14,9 @@ RUN useradd -ms /bin/bash myuser
 
 #RUN chmod +x ./sbin/my_init
 
-#COPY 00_regen_ssh_host_keys.sh /etc/my_init.d/00_regen_ssh_host_keys.sh
+COPY 00_regen_ssh_host_keys.sh /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-#RUN chmod +x /etc/my_init.d/00_regen_ssh_host_keys.sh
+RUN chmod +x /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 #COPY 10_syslog-ng.init /etc/my_init.d/10_syslog-ng.init
 
@@ -25,8 +25,6 @@ RUN useradd -ms /bin/bash myuser
 #ADD file:a7268f82a86219801950401c224cabbdd83ef510a7c71396b25f70c2639ae4fa in /etc/apache2/sites-enabled/qgis-server.conf
 
 ADD /api-gateway/nginx-example.conf /etc/apache2/sites-enabled/qgis-server.conf
-
-CMD ["bash"]
 
 
 ARG QEMU_ARCH
@@ -102,7 +100,7 @@ RUN whoami
 #CMD ["/sbin/my_init"]
 
 
-CMD ["/sbin/my_init","--","setuser","myuser","bash"]
+CMD ["/sbin/my_init --skip-startup-filesa","--","setuser","myuser","bash"]
 
 #USER myuser
 # Run the "bash" shell as user "myuser" 
